@@ -36,8 +36,8 @@
 #define PID_GAIN_YAW_D 0
 
 // IMU sensor sensitivities.
-#define GYRO_SENSITIVITY 131    // = 131 LSB/degrees/sec
-#define ACCEL_SENSITIVITY 16384 // = 16384 LSB/g
+#define GYRO_SENSITIVITY 65.5    // = 131 LSB/degrees/sec
+#define ACCEL_SENSITIVITY 4096 // = 16384 LSB/g
 
 // Allowable limits for rotor speeds (0.0 = 1ms pulse, 1.0 = 2ms pulse).
 #define MIN_ROTOR_SPEED 0.0

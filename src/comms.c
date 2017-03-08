@@ -4,6 +4,7 @@
 #include "comms_interface.h"
 #include "data_structures.h"
 #include "includes/spi.h"
+#include "debug.h"
 
 // Define a function to initialize SPI communication with the control module
 void comms_master_init()

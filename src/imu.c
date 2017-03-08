@@ -400,7 +400,7 @@ void imu_read(measured_state_t *destination){
 	// It seems to bemore accurate, however, coupling between angles is not taken into account
 	// or I am doing something wrong
 
-	MadgwickAHRSupdateIMU(gyro_x, gyro_y, gyro_z, accel_x, accel_y, accel_z);
+	MadgwickAHRSupdateIMU(gyro_x*3.14/180, gyro_y*3.14/180, gyro_z*3.14/180, accel_x, accel_y, accel_z);
 	destination->roll = (acosf(q0/sqrtf(q0*q0+q2*q2))*2.0f)*180/3.14;
 	destination->pitch = atan2f(2*(q0*q1+q2*q3), 1-2*(q1*q1+q2*q2))*180/3.14;
 	destination->yaw_vel = gyro_z;
