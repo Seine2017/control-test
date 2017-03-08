@@ -93,7 +93,7 @@ void send_slave_data_packet(logg_data_packet_t* logg_data_packet)
 	}
 	
 	//Re-enable SPI interrupts so one of these 2 functions can be called again when needed.
-	enable_SPI_interrupts;
+	enable_SPI_interrupts();
 }
 
 // Define a function to receive a data packet with RC inputs from the
@@ -110,5 +110,5 @@ void receive_slave_data_packet(rc_data_packet_t* rc_data_packet)
 	rc_data_packet->channel_3 = spi_rx();
 	
 	//Re-enable SPI interrupts so one of these 2 functions can be called again when needed.
-	enable_SPI_interrupts;
+	enable_SPI_interrupts();
 }

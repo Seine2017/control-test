@@ -8,13 +8,13 @@
 
 void init_spi_master(void)
 {
-	DDRB = _BV(PB4) | _BV(PB5) | _BV(PB7);	  //Set Slave Select (/SS), MOSI and SCLK to outputs.
+	DDRB = _BV(PB2) | _BV(PB3) | _BV(PB5);	  //Set Slave Select (/SS), MOSI and SCLK to outputs.
 	SPCR = _BV(SPE) | _BV(MSTR) | _BV(SPR0);  //Enable SPI, configure this device as master, set F_SCK = F_CPU/16 = 750 kHz.
 }
 
 void init_spi_slave(void)
 {
-	DDRB = _BV(PB6);	 		  	//Set MISO to output. 
+	DDRB = _BV(PB4);	 		  	//Set MISO to output. 
 	SPCR = _BV(SPE);  		 	  	//Enable SPI.
 	init_SPI_interrupts();			//Enable SPI interrupts. Only needed by the slave.
 }
@@ -28,11 +28,13 @@ void init_SPI_interrupts(void)
 void enable_SPI_interrupts(void)
 {
 	SPCR |= _BV(SPIE);				//Enable SPI interrupts. Don't need to enable global interrupts again.
+	//sei();
 }
 
 void disable_SPI_interrupts(void)
 {
 	SPCR &= ~_BV(SPIE);				//Disable SPI interrupts. Don't disable global interrupts since it might break things.
+	//cli();
 }
 
 void spi_tx(uint8_t b)
