@@ -51,7 +51,7 @@ int main() {
     //if(!(clock_now%4))
 	imu_read(&measured_state);
 	convert_data(&measured_state, &logg_data_packet);
-	//printf("pitch: %d, roll: %d, yaw_vel: %d\n", (int)logg_data_packet.pitch.value, (int)logg_data_packet.roll.value, (int)logg_data_packet.yaw_vel.value);
+	printf("%d, %d, %d\n", (int)logg_data_packet.pitch.value, (int)logg_data_packet.roll.value, (int)logg_data_packet.yaw_vel.value);
 
   }
 }
