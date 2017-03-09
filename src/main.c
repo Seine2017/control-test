@@ -27,7 +27,7 @@ ISR(SPI_STC_vect)
 			//printf("pitch: %d, roll: %d, yaw_vel: %d\n", (int)logg_data_packet.pitch.value, (int)logg_data_packet.roll.value, (int)logg_data_packet.yaw_vel.value);
 			break;
 		default:
-			printf("%d\n", tempByte);
+			//printf("%d\n", tempByte);
 			break;
 	}
 }

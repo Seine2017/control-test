@@ -1,0 +1,3 @@
+avr-gcc -mmcu=atmega328p -DF_CPU=16000000 -Wall -Os main.c -o main.elf clock.c comms.c imu.c MadgwickAHRS.c includes/receiver.c includes/spi.c includes/transmitter.c
+avr-objcopy -O ihex main.elf main.hex
+avrdude -F -V -c arduino -p ATMEGA328P -P COM? -b 115200 -U flash:w:main.hex
