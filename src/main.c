@@ -33,8 +33,6 @@ ISR(SPI_STC_vect)
 }
 
 int main() {
-  
-  
   clock_init();
   imu_init();
   comms_slave_init();
@@ -42,9 +40,7 @@ int main() {
 
   // Enable interrupts.
   sei();
-  
-  clock_time_t clock_now;
-
+    clock_time_t clock_now;
   while (1) {
 	 clock_now = clock_get_time();
     // Communicate with IMU.
@@ -52,13 +48,10 @@ int main() {
 	imu_read(&measured_state);
 	convert_data(&measured_state, &logg_data_packet);
 	printf("%d, %d, %d\n", (int)logg_data_packet.pitch.value, (int)logg_data_packet.roll.value, (int)logg_data_packet.yaw_vel.value);
-
   }
 }
 void convert_data(measured_state_t* measured_state, logg_data_packet_t* logg_data_packet){
 	logg_data_packet->roll.value = measured_state->roll;
 	logg_data_packet->pitch.value = measured_state->pitch;
 	logg_data_packet->yaw_vel.value = measured_state->yaw_vel;
-	
-	
 }
